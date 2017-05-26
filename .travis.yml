@@ -1,0 +1,21 @@
+rvm:
+  - 2.3
+
+addons:
+  apt:
+    sources:
+      - chef-stable-trusty
+    packages:
+      - chefdk
+
+before_script:
+  - cookstyle --version
+  - foodcritic --version
+
+script:
+  - cookstyle
+  - foodcritic .
+  - chef exec rspec
+
+notifications:
+  email: false
