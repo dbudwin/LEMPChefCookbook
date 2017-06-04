@@ -9,3 +9,5 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 issues_url 'https://github.com/dbudwin/LEMPChefCookbook/issues'
 source_url 'https://github.com/dbudwin/LEMPChefCookbook'
 supports 'ubuntu'
+
+depends 'chef_nginx', '~> 6.0.2'
