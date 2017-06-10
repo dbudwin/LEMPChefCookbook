@@ -10,5 +10,6 @@ issues_url 'https://github.com/dbudwin/LEMPChefCookbook/issues'
 source_url 'https://github.com/dbudwin/LEMPChefCookbook'
 supports 'ubuntu'
 
+depends 'mysql', '~> 8.4.0'
 depends 'php', '~> 4.2.0'
 depends 'chef_nginx', '~> 6.0.2'
