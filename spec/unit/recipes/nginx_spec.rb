@@ -1,18 +1,13 @@
 require 'spec_helper'
 
 describe 'LEMPChefCookbook::nginx' do
-  context 'When all attributes are default, on an Ubuntu 16.04' do
-    let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
-      runner.converge(described_recipe)
-    end
+  include_context 'Ubuntu 16.04'
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
+  it 'includes chef_nginx::default recipe to install Chef\'s NGINX' do
+    expect(chef_run).to include_recipe('chef_nginx::default')
+  end
 
-    it 'nginx service is running' do
-      expect(chef_run).to start_service('nginx')
-    end
+  it 'nginx service is running' do
+    expect(chef_run).to start_service('nginx')
   end
 end

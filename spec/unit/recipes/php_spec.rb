@@ -1,18 +1,13 @@
 require 'spec_helper'
 
 describe 'LEMPChefCookbook::php' do
-  context 'When all attributes are default, on an Ubuntu 16.04' do
-    let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
-      runner.converge(described_recipe)
-    end
+  include_context 'Ubuntu 16.04'
 
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
+  it 'includes php::default recipe to install PHP' do
+    expect(chef_run).to include_recipe('php::default')
+  end
 
-    it 'restarts php7.0-fpm service' do
-      expect(chef_run).to restart_service('php7.0-fpm')
-    end
+  it 'restarts php7.0-fpm service' do
+    expect(chef_run).to restart_service('php7.0-fpm')
   end
 end
