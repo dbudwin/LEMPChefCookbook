@@ -8,6 +8,10 @@ addons:
     packages:
       - chefdk
 
+branches:
+  only:
+    - master
+
 before_script:
   - cookstyle --version
   - foodcritic --version
