@@ -8,5 +8,5 @@ describe service('mysql-robohome') do
 end
 
 describe command('mysql --version') do
-  its(:stdout) { should contain('Ver 14.14 Distrib 5.7.18') }
+  its(:stdout) { should include('Ver 14.14 Distrib 5.7.18') }
 end
