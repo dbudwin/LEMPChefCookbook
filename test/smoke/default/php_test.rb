@@ -16,5 +16,5 @@ describe package('php-mbstring') do
 end
 
 describe command('php -v') do
-  its(:stdout) { should contain('PHP 7.0.15-0') }
+  its(:stdout) { should match(/PHP 7\.0\.(\d+)-0/) }
 end
