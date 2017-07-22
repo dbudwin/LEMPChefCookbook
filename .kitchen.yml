@@ -21,8 +21,16 @@ suites:
     data_bags_path: 'data_bags'
     encrypted_data_bag_secret_key_path: '~/.chef/encrypted_data_bag_secret'
     run_list:
-      - recipe[LEMPChefCookbook::default]
+      - recipe[acme_server::default]
+      # - recipe[LEMPChefCookbook::default]
     verifier:
       inspec_tests:
         - test/smoke/default
     attributes:
+      acme:
+        contact: mailto:admin@example.com
+        endpoint: http://127.0.0.1:4000
+      # boulder:
+      #   revision: 2d33a9900cafe82993744fe73bd341fe47df2171
+      nginx:
+        server_names_hash_bucket_size: 256

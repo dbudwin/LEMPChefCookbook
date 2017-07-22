@@ -8,11 +8,10 @@ server {
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    
-    include snippets/ssl-params-budw.in.conf;
 
-    ssl_certificate /etc/letsencrypt/live/budw.in/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/budw.in/privkey.pem;
+    ssl on;
+    ssl_certificate /etc/ssl/budw.in.crt;
+    ssl_certificate_key /etc/ssl/budw.in.key;
 
     root /var/www/budw.in;
 
